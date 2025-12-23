@@ -69,6 +69,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -307,7 +308,11 @@ private fun HomeScreenNavigationDrawer(
     // workarounds which don't work at all. I will just live with it for now. (Not composing
     // ModalNavigationDrawer until the first time the user clicks on the hamburger menu sort of
     // works, but the first appearance of the drawer is then ugly/badly animated somehow, so it's
-    // probably worse than the problem it's trying to fix.)
+    // probably worse than the problem it's trying to fix.) - This *may* have been fixed by changing
+    // to the ModalDrawerSheet version which takes a drawerState, but I'm not sure yet.
+    val screenWidthDp = with(LocalDensity.current) {
+        LocalWindowInfo.current.containerSize.width.toDp()
+    }
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -316,12 +321,13 @@ private fun HomeScreenNavigationDrawer(
             // width on a portrait smartphone. If nothing else, that makes how to dismiss it feel
             // less discoverable.
             ModalDrawerSheet(
+                drawerState = drawerState,
                 modifier =
                     Modifier.wrapContentWidth()
                         .widthIn(
                             max =
                                 min(
-                                    LocalWindowInfo.current.containerSize.width.dp * 2f / 3f,
+                                    screenWidthDp * 2f / 3f,
                                     maxNavigationDrawerWidth,
                                 )
                         )

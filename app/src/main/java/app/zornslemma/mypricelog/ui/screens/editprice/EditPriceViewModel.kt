@@ -12,6 +12,7 @@ import app.zornslemma.mypricelog.data.EditablePrice
 import app.zornslemma.mypricelog.data.Item
 import app.zornslemma.mypricelog.data.Source
 import app.zornslemma.mypricelog.data.toDomain
+import app.zornslemma.mypricelog.domain.MeasurementUnit
 import app.zornslemma.mypricelog.domain.Repository
 import app.zornslemma.mypricelog.domain.createCurrencyFormat
 import app.zornslemma.mypricelog.ui.common.PersistentUiContent
@@ -31,6 +32,7 @@ data class EditPriceScreenStaticContent(
     val dataSet: DataSet,
     val item: Item,
     val source: Source,
+    val autoUnitPriceDenominator: MeasurementUnit,
     val nonLinearEdit: Boolean,
     val frozenLocale: Locale,
 ) : Parcelable

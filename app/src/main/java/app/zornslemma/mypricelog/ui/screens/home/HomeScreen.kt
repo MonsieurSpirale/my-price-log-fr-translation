@@ -89,11 +89,10 @@ import app.zornslemma.mypricelog.data.Item
 import app.zornslemma.mypricelog.data.Source
 import app.zornslemma.mypricelog.domain.AgeClass
 import app.zornslemma.mypricelog.domain.AugmentedPrice
+import app.zornslemma.mypricelog.domain.MeasurementUnit
 import app.zornslemma.mypricelog.domain.PriceAnalysis
 import app.zornslemma.mypricelog.domain.PriceJudgement
 import app.zornslemma.mypricelog.domain.createCurrencyFormat
-import app.zornslemma.mypricelog.domain.getMeasurementUnitsOfSameQuantityTypeAndUnitFamily
-import app.zornslemma.mypricelog.domain.withFriendlyDenominator
 import app.zornslemma.mypricelog.ui.common.AsyncOperationStatus
 import app.zornslemma.mypricelog.ui.common.LoadState
 import app.zornslemma.mypricelog.ui.common.formatPrice
@@ -110,7 +109,9 @@ import app.zornslemma.mypricelog.ui.components.MyExposedDropdownMenuBox
 import app.zornslemma.mypricelog.ui.components.OnAppLifecycleEvent
 import app.zornslemma.mypricelog.ui.components.OverflowMenu
 import app.zornslemma.mypricelog.ui.components.PackPriceAndSizeRow
+import app.zornslemma.mypricelog.ui.components.SharedViewModel
 import app.zornslemma.mypricelog.ui.components.myTextFieldColors
+import app.zornslemma.mypricelog.ui.components.selectUnitPriceDenominator
 import app.zornslemma.mypricelog.ui.listItemHorizontalPadding
 import app.zornslemma.mypricelog.ui.maxNavigationDrawerWidth
 import app.zornslemma.mypricelog.ui.oneLineListItemHeight
@@ -131,6 +132,7 @@ private const val TAG = "HomeScreen"
 
 @Composable
 fun HomeScreen(
+    sharedViewModel: SharedViewModel,
     viewModel: HomeViewModel,
     navController: NavHostController,
     onEditPriceClick: (HomeScreenUiContent) -> Unit,
@@ -159,6 +161,8 @@ fun HomeScreen(
     // for the very first frame.
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val (loading, uiContent) = uiState
+
+    sharedViewModel.resetUserUnitPriceDenominatorOnItemChange(uiContent.item?.id)
 
     if (uiContent.dataSetIdState is LoadState.Loading) {
         // Just leave the home screen blank until we get the first async population of the selected
@@ -206,6 +210,7 @@ fun HomeScreen(
                 asyncOperationStatus = asyncOperationStatus,
             ) { innerPadding ->
                 HomeScreenContent(
+                    sharedViewModel,
                     viewModel,
                     uiContent,
                     onSelectedSourceIdChange = { it: Long ->
@@ -310,9 +315,8 @@ private fun HomeScreenNavigationDrawer(
     // works, but the first appearance of the drawer is then ugly/badly animated somehow, so it's
     // probably worse than the problem it's trying to fix.) - This *may* have been fixed by changing
     // to the ModalDrawerSheet version which takes a drawerState, but I'm not sure yet.
-    val screenWidthDp = with(LocalDensity.current) {
-        LocalWindowInfo.current.containerSize.width.toDp()
-    }
+    val screenWidthDp =
+        with(LocalDensity.current) { LocalWindowInfo.current.containerSize.width.toDp() }
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -324,13 +328,7 @@ private fun HomeScreenNavigationDrawer(
                 drawerState = drawerState,
                 modifier =
                     Modifier.wrapContentWidth()
-                        .widthIn(
-                            max =
-                                min(
-                                    screenWidthDp * 2f / 3f,
-                                    maxNavigationDrawerWidth,
-                                )
-                        )
+                        .widthIn(max = min(screenWidthDp * 2f / 3f, maxNavigationDrawerWidth)),
             ) {
                 Column {
                     Box(
@@ -541,6 +539,7 @@ private fun HomeScreenStateManager(
 
 @Composable
 private fun HomeScreenContent(
+    sharedViewModel: SharedViewModel,
     viewModel: HomeViewModel,
     uiContent: HomeScreenUiContent,
     onSelectedSourceIdChange: (Long) -> Unit,
@@ -557,6 +556,7 @@ private fun HomeScreenContent(
     val item = uiContent.item
     val itemList = uiContent.itemList
     val priceAnalysis = uiContent.priceAnalysis
+    val autoUnitPriceDenominator = uiContent.autoUnitPriceDenominator
 
     var showDeletePriceConfirmDialog by rememberSaveable { mutableStateOf(false) }
 
@@ -603,6 +603,7 @@ private fun HomeScreenContent(
             AnimatedVisibility(visible = item != null && source != null) {
                 Column {
                     ItemSourceInfoLive(
+                        sharedViewModel = sharedViewModel,
                         viewModel = viewModel,
                         asyncOperationStatus = asyncOperationStatus,
                         dataSet = dataSet,
@@ -612,6 +613,7 @@ private fun HomeScreenContent(
                             priceAnalysis.augmentedPriceList.singleOrNull {
                                 it.basePrice.sourceId == source?.id
                             },
+                        autoUnitPriceDenominator = autoUnitPriceDenominator,
                         onEditPriceClick = onEditPriceClick,
                         onViewHistoryClick = onViewHistoryClick,
                         onDeletePriceClick = { showDeletePriceConfirmDialog = true },
@@ -638,6 +640,7 @@ private fun HomeScreenContent(
                     dataSet,
                     source,
                     priceAnalysis,
+                    autoUnitPriceDenominator,
                     onClick = { onSelectedSourceIdChange(it) },
                     asyncOperationStatus,
                 )
@@ -747,12 +750,16 @@ private fun PriceComparisonCard(
     dataSet: DataSet,
     source: Source?,
     priceAnalysis: PriceAnalysis,
+    autoUnitPriceDenominator: MeasurementUnit?,
     onClick: (Long) -> Unit,
     asyncOperationStatus: AsyncOperationStatus,
 ) {
     // ENHANCE: We could make denominator user-selectable in this list header. If so it should
     // probably offer all the user's selected units of the right type, as the unit price dropdown on
-    // ItemSourceInfo does.
+    // ItemSourceInfo does. It should probably change and be changed by alterations to the
+    // denominator on the store card for consistency (as we do e.g. on the edit price screen), and
+    // if neither of these is manually changed after selecting a product, we use an auto-selected
+    // default.
     val locale = LocalConfiguration.current.locales[0]
     val currencyFormat = remember(dataSet, locale) { dataSet.createCurrencyFormat(locale) }
 
@@ -780,24 +787,17 @@ private fun PriceComparisonCard(
                 // ("/100g") feels unclear, as does having prices which aren't marked with a
                 // currency symbol.
 
-                // We use the unit family of the lowest unit price to pick a friendly
-                // denominator and (of course) use that same denominator for all the unit
-                // prices.
-                val bestValueAugmentedPrice = priceAnalysis.augmentedPriceList.first()
                 val headerUnitPriceDenominator =
-                    remember(bestValueAugmentedPrice) {
-                        val candidateDenominators =
-                            dataSet.getMeasurementUnitsOfSameQuantityTypeAndUnitFamily(
-                                bestValueAugmentedPrice.basePrice.quantity.unit,
-                                includeDisplayOnly = true,
-                            )
-                        bestValueAugmentedPrice.unitPrice
-                            .withFriendlyDenominator(
-                                preferredUnit = bestValueAugmentedPrice.basePrice.quantity.unit,
-                                currencyDecimalPlaces = currencyFormat.decimalPlaces,
-                                candidateDenominators = candidateDenominators,
-                            )
-                            .denominator
+                    if (autoUnitPriceDenominator != null) autoUnitPriceDenominator
+                    else {
+                        // We really don't expect this to happen but as this is UI code we supply a
+                        // reasonable
+                        // default to avoid crashing if it does.
+                        Log.w(
+                            TAG,
+                            "Unexpected: autoUnitPriceDenominator should not be null in PriceComparisonCard() when we have prices",
+                        )
+                        priceAnalysis.augmentedPriceList.first().unitPrice.denominator
                     }
                 // We use "prefix or suffix" in the header because although the prefix or suffix
                 // nature of a currency symbol in a locale matters in some other places, here it is
@@ -931,10 +931,12 @@ private fun PriceJudgementIndicator(priceJudgement: PriceJudgement) {
 
 @Composable
 private fun SourcePriceCardBody(
+    sharedViewModel: SharedViewModel,
     viewModel: HomeViewModel,
     asyncOperationStatus: AsyncOperationStatus,
     dataSet: DataSet,
     augmentedPrice: AugmentedPrice?,
+    autoUnitPriceDenominator: MeasurementUnit?,
     onEditPriceClick: () -> Unit,
 ) {
     // ENHANCE: When the card expands, the button(s) on the "bottom" row of the card jump
@@ -971,11 +973,29 @@ private fun SourcePriceCardBody(
             }
         } else {
             val price = augmentedPrice.basePrice
+            val userUnitPriceDenominator by
+                sharedViewModel.userUnitPriceDenominatorFlow.collectAsStateWithLifecycle()
 
+            val safeAutoUnitPriceDenominator =
+                if (autoUnitPriceDenominator != null) autoUnitPriceDenominator
+                else {
+                    // We really don't expect this to happen but as this is UI code we supply a
+                    // reasonable
+                    // default to avoid crashing if it does.
+                    Log.w(
+                        TAG,
+                        "Unexpected: autoUnitPriceDenominator should not be null in SourcePriceCardBody() when we have a price",
+                    )
+                    augmentedPrice.unitPrice.denominator
+                }
             PackPriceAndSizeRow(
                 price.price,
                 price.count,
                 price.quantity,
+                selectUnitPriceDenominator(safeAutoUnitPriceDenominator, userUnitPriceDenominator),
+                onUnitPriceDenominatorChange = {
+                    sharedViewModel.updateUserUnitPriceDenominator(it)
+                },
                 dataSet,
                 asyncOperationStatus,
             )
@@ -1014,12 +1034,14 @@ private fun SourcePriceCardBody(
 
 @Composable
 private fun ItemSourceInfoLive(
+    sharedViewModel: SharedViewModel,
     viewModel: HomeViewModel,
     asyncOperationStatus: AsyncOperationStatus,
     dataSet: DataSet,
     item: Item?,
     source: Source?,
     augmentedPrice: AugmentedPrice?,
+    autoUnitPriceDenominator: MeasurementUnit?,
     onEditPriceClick: () -> Unit,
     onViewHistoryClick: () -> Unit,
     onDeletePriceClick: () -> Unit,
@@ -1041,10 +1063,12 @@ private fun ItemSourceInfoLive(
     ) {
         Box {
             SourcePriceCardBody(
+                sharedViewModel,
                 viewModel,
                 asyncOperationStatus,
                 dataSet,
                 augmentedPrice,
+                autoUnitPriceDenominator,
                 onEditPriceClick,
             )
             SourcePriceCardMenu(

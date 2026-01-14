@@ -198,6 +198,7 @@ fun AppNavigation() {
                 viewModel<HomeViewModel>(backStackEntry, factory = AppViewModelProvider.Factory)
             LaunchedEffect(locale) { viewModel.updateLocale(locale) }
             HomeScreen(
+                sharedViewModel,
                 viewModel,
                 navController,
                 onEditPriceClick = { uiContent ->
@@ -447,6 +448,7 @@ fun AppNavigation() {
                 },
             ) { viewModel ->
                 EditPriceScreen(
+                    sharedViewModel,
                     viewModel,
                     requestClose = { id ->
                         if (id == null) {
@@ -593,12 +595,14 @@ fun AppNavigation() {
                                 it.item,
                                 it.source,
                                 it.price,
+                                it.autoUnitPriceDenominator,
                             )
                         },
                     )
                 },
             ) { viewModel ->
                 ViewPriceHistoryScreen(
+                    sharedViewModel,
                     viewModel,
                     requestClose = { navController.popBackStack() },
                     requestEditAsNew = { priceHistory ->
@@ -618,6 +622,7 @@ fun AppNavigation() {
                             viewModel.uiContent.staticContent.dataSet,
                             viewModel.uiContent.staticContent.item,
                             viewModel.uiContent.staticContent.source,
+                            viewModel.uiContent.staticContent.autoUnitPriceDenominator,
                             editablePrice =
                                 priceHistory.toEditable(
                                     // It's important we provide the current price ID, since we must

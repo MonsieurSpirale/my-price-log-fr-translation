@@ -249,3 +249,14 @@ class MainActivity : ComponentActivity() {
 // need to implement a certain class and mention it in AndroidManifest.xml, but do check. FWIW the
 // limit on Google Drive is currently 25MB per app and my personal live database is about 110K, so
 // in reality it is pretty unlikely this is ever going to be a problem in the first place.
+
+// ENHANCE: It might be nice to record the user's last-chosen unit price denominator for each (item,
+// source) combination. We could store this in a separate database table and write to it
+// asynchronously on a best-effort basis (as opposed to the "save is initiated and we make the user
+// wait, trapped, until it completes" saves for critical data). Based on discussions with ChatGPT
+// this is the way to go, rather than trying to put it in any form of shared preferences, as even
+// the more modern DataStore is not optimised for this. Although this would involve a database
+// upgrade to add later, it is just adding a new table which would start off empty with no data
+// migration, so it's probably not too scary. All this said, I am not sure this is a good idea - for
+// example, if a price drifts with inflation, this algorithm will auto-adjust the default unit
+// whereas a user's selection would be sticky.

@@ -66,8 +66,7 @@ class SharedViewModel(private val savedStateHandle: SavedStateHandle) : ViewMode
             if (uiContent.autoUnitPriceDenominator != null) uiContent.autoUnitPriceDenominator
             else {
                 // We really don't expect this to happen but as this is UI code we supply a
-                // reasonable
-                // default to avoid crashing if it does.
+                // reasonable default to avoid crashing if it does.
                 Log.w(
                     TAG,
                     "Unexpected: autoUnitPriceDenominator should not be null in setEditPriceScreenInitialUiContent()",
@@ -155,8 +154,7 @@ class SharedViewModel(private val savedStateHandle: SavedStateHandle) : ViewMode
             if (uiContent.autoUnitPriceDenominator != null) uiContent.autoUnitPriceDenominator
             else {
                 // We really don't expect this to happen but as this is UI code we supply a
-                // reasonable
-                // default to avoid crashing if it does.
+                // reasonable default to avoid crashing if it does.
                 Log.w(
                     TAG,
                     "Unexpected: autoUnitPriceDenominator should not be null in setViewPriceHistoryScreenInitialUiContent()",

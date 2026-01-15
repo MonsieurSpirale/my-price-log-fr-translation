@@ -324,6 +324,8 @@ private fun HomeScreenNavigationDrawer(
             // standard, I really don't like the default behaviour of it taking the full screen
             // width on a portrait smartphone. If nothing else, that makes how to dismiss it feel
             // less discoverable.
+            // ENHANCE: I just checked and GMail appears to use 3/4 of the screen width, so maybe
+            // copy that.
             ModalDrawerSheet(
                 drawerState = drawerState,
                 modifier =
@@ -791,8 +793,7 @@ private fun PriceComparisonCard(
                     if (autoUnitPriceDenominator != null) autoUnitPriceDenominator
                     else {
                         // We really don't expect this to happen but as this is UI code we supply a
-                        // reasonable
-                        // default to avoid crashing if it does.
+                        // reasonable default to avoid crashing if it does.
                         Log.w(
                             TAG,
                             "Unexpected: autoUnitPriceDenominator should not be null in PriceComparisonCard() when we have prices",
@@ -980,8 +981,7 @@ private fun SourcePriceCardBody(
                 if (autoUnitPriceDenominator != null) autoUnitPriceDenominator
                 else {
                     // We really don't expect this to happen but as this is UI code we supply a
-                    // reasonable
-                    // default to avoid crashing if it does.
+                    // reasonable default to avoid crashing if it does.
                     Log.w(
                         TAG,
                         "Unexpected: autoUnitPriceDenominator should not be null in SourcePriceCardBody() when we have a price",

@@ -260,3 +260,16 @@ class MainActivity : ComponentActivity() {
 // migration, so it's probably not too scary. All this said, I am not sure this is a good idea - for
 // example, if a price drifts with inflation, this algorithm will auto-adjust the default unit
 // whereas a user's selection would be sticky.
+
+// ENHANCE: We could add a "quality multiplier" to an (item, source) pair. This would allow the user
+// to model things like "these own brand beans taste fine but the can has a lot more sauce and a lot
+// less beans than most other brands" by setting the multiplier to something like 0.8, which would
+// be applied to the unit price when comparing. The multiplier could also be >1. This is just an
+// idea, it might be more trouble than it's worth and it invites the user to numerically quantify
+// something which isn't inherently all that quantifiable. (Admittedly in the beans case someone
+// could drain the sauce off and weigh just the beans to quantify this properly, but in general I'm
+// thinking this would be used for vague "this brand is somehow a bit nicer/worse and I'm willing to
+// pay slightly more/less per unit for it" type things.) This is probably not really within the
+// spirit of the app, but think about it. (It shouldn't justify doing it anyway even if it's a bad
+// idea, but we could default this to 1.0 and hide the ability to edit it unless the user enables it
+// at global settings, data set or product level.)

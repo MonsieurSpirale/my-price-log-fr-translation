@@ -273,3 +273,9 @@ class MainActivity : ComponentActivity() {
 // spirit of the app, but think about it. (It shouldn't justify doing it anyway even if it's a bad
 // idea, but we could default this to 1.0 and hide the ability to edit it unless the user enables it
 // at global settings, data set or product level.)
+
+// ENHANCE: Could we offer an option to show the notes (or an initial part thereof, if long) as a
+// sort of subtitle on the "select item/source/product from list" screens? I am not sure this is a
+// good idea but it just might be nice for some users who would like to qualify a product name in
+// some way without literally baking it right into the name. (I'm thinking the display style of the
+// items in the selection list would be a bit like the Settings tiles.)

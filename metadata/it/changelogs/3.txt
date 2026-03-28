@@ -1,0 +1,11 @@
+- Visualizza un prezzo unitario nella schermata per aggiungere/modificare un prezzo, insieme al prezzo unitario attuale ed un cambio in percentuale quando si modifica il prezzo esistente.
+
+- Tentativo di migliorare la selezione automatica dei denominatori per i prezzi unitari. Il nuovo algoritmo potrebbe evitare scelte pessime in alcuni casi limite.
+
+- Resi persistenti i denominatori per i prezzi unitari selezionati manualmente finché non viene selezionato un prodotto differente.
+
+- Utilizzata la più intuitiva modalità di arrotondamento per eccesso (€0.045 viene arrotondato in €0.05) quando vengono mostrati i valori di ogni valuta, piuttosto che la modalità predefinita di arrotondamento per difetto ($0.045 viene arrotondato in $0.04).
+
+- Limitato il menù della schermata di navigazione principale a 2/3 della larghezza dello schermo su schermi stretti. (Doveva farlo sempre, ma l'ho rotto per sbaglio poco prima del rilascio della v0.1)
+
+- Quando il menù della schermata di navigazione principale è aperta, il pulsante/gesto per tornare indietro viene ora gestito correttamente: questa azione ora chiude il menù. In precedenza, il menù veniva ignorato e ritornava indietro come se fosse sulla schermata principale, causando tipicamente la chiusura dell'app.

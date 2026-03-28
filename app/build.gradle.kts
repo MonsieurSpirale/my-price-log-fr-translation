@@ -47,6 +47,7 @@ android {
         // we revert to minSdk 24 later on, these may need re-enabling.
         minSdk = 30
         targetSdk = 36
+        // TODO: UPDATE THIS TO 4 AND A SUITABLE VERSION NAME DEPENDING ON WHAT IS IN IT
         versionCode = 3
         versionName = "0.2"
 

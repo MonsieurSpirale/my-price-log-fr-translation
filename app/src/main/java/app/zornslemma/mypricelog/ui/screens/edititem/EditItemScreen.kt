@@ -225,12 +225,14 @@ fun EditItemScreen(viewModel: EditItemViewModel, requestClose: (newSelectedItemI
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // ENHANCE: I think we have this chunk to have a "labelled Switch" in a couple of places,
+        // factor it out?
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            Column {
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(R.string.label_may_be_sold_in_multipacks),
                     color = MaterialTheme.colorScheme.onSurface,

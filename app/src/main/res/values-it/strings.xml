@@ -230,6 +230,7 @@
     <string name="label_existing_unit_price">Prezzo unitario attuale</string>
     <string name="label_new_unit_price">Nuovo prezzo unitario</string>
     <string name="label_change">Cambia</string>
+    <string name="message_italian_translation_attribution">Traduzione in italiano di DZ-Aladan</string>
     <plurals name="supporting_text_prices_considered_stale_after_x_days">
         <item quantity="one">Prezzi considerati datati dopo %1$d giorno</item>
         <item quantity="other">Prezzi considerati datati dopo %1$d giorni</item>

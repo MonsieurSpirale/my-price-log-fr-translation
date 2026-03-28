@@ -236,4 +236,5 @@
     <string name="label_existing_unit_price">Precio por unidad actual</string>
     <string name="label_new_unit_price">Precio por unidad nuevo</string>
     <string name="label_change">Cambio</string>
+    <string name="message_italian_translation_attribution">Traducción al italiano por DZ-Aladan</string>
 </resources>

@@ -230,6 +230,7 @@
     <string name="label_existing_unit_price">Existing unit price</string>
     <string name="label_new_unit_price">New unit price</string>
     <string name="label_change">Change</string>
+    <string name="message_italian_translation_attribution">Italian translation by DZ-Aladan</string>
     <plurals name="supporting_text_prices_considered_stale_after_x_days">
         <item quantity="one">Prices considered stale after %1$d day</item>
         <item quantity="other">Prices considered stale after %1$d days</item>

@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3 - 4 (2026-03-03)
+
+- Add Italian translation by DZ-Aladan. Thanks!
+
+- Add option to enter prices in (e.g.) cents rather than dollars, with an implicit decimal point. Thanks to naul06 for the suggestion.
+
 ## v0.2 - 3 (2026-01-14)
 
 - Show a unit price on the add/edit price screen, along with the current unit price and a percentage change when editing an existing price.

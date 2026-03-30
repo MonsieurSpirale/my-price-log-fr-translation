@@ -10,7 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 
 @Composable
 fun LabelledSwitch(
@@ -27,20 +26,13 @@ fun LabelledSwitch(
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = title,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
+            Text(text = title, color = MaterialTheme.colorScheme.onSurface)
             Text(
                 text = supportingText,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 style = MaterialTheme.typography.bodySmall,
             )
         }
-        Switch(
-            enabled = enabled,
-            checked = checked,
-            onCheckedChange = onCheckedChange,
-        )
+        Switch(enabled = enabled, checked = checked, onCheckedChange = onCheckedChange)
     }
 }

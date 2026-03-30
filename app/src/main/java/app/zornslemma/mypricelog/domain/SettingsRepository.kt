@@ -48,7 +48,9 @@ class SettingsRepository(private val dataStore: DataStore<Preferences>) {
         }
 
     val minorUnitPriceEntryFlow: Flow<Boolean> =
-        dataStore.data.map { prefs -> prefs[Keys.MINOR_UNIT_PRICE_ENTRY_KEY] ?: defaultMinorUnitPriceEntry }
+        dataStore.data.map { prefs ->
+            prefs[Keys.MINOR_UNIT_PRICE_ENTRY_KEY] ?: defaultMinorUnitPriceEntry
+        }
 
     val priceAgeSettingsFlow: Flow<PriceAgeSettings> =
         combine(

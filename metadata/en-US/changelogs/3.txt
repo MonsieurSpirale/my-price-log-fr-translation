@@ -1,11 +1,1 @@
-- Show a unit price on the add/edit price screen, along with the current unit price and a percentage change when editing an existing price.
-
-- Try to improve the automatic selection of unit price denominators. A new algorithm is used which may avoid poor choices in some corner cases.
-
-- Persist a manually selected unit price denominator until a different product is selected.
-
-- Use the more intuitive half-up rounding mode ($0.045 rounds to $0.05) when displaying currency amounts, instead of the default half-even rounding mode ($0.045 rounds to $0.04).
-
-- Restrict the main screen's navigation drawer to 2/3 of the screen width on narrow screens. (It was always supposed to behave like this, but I had accidentally broken it shortly before the v0.1 release.)
-
-- Handle the back button/gesture correctly when the main screen navigation drawer is open. This now closes the drawer. Previously it ignored the drawer and navigated back from the main screen, typically exiting the app.
+[truncated]

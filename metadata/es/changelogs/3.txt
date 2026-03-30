@@ -1,11 +1,1 @@
-- Mostrar el precio unitario en la pantalla de agregar/editar precio, junto con el precio unitario actual y el cambio porcentual al editar un precio existente.
-
-- Intentar mejorar la selección automática de denominadores de precio unitario. Se utiliza un nuevo algoritmo que puede evitar elecciones inadecuadas en algunos casos puntuales.
-
-- Mantener un denominador de precio unitario seleccionado manualmente hasta que se seleccione un producto diferente.
-
-- Usar el modo de redondeo más intuitivo "half-up" (0,045 se redondea a 0,05) al mostrar importes en moneda, en lugar del modo de redondeo por defecto "half-even" (0,045 se redondea a 0,04).
-
-- Restringir el ancho del panel de navegación de la pantalla principal a 2/3 de la pantalla en dispositivos estrechos. (Siempre se había supuesto que se comportaría así, pero se había roto accidentalmente poco antes de la versión 0.1.)
-
-- Manejar correctamente el botón/gesto de retroceso cuando el panel de navegación de la pantalla principal está abierto. Ahora se cierra el panel en lugar de ignorarlo y navegar hacia atrás desde la pantalla principal, lo que generalmente provocaba la salida de la aplicación.
+[truncated]

@@ -14,6 +14,7 @@ import app.zornslemma.mypricelog.data.Source
 import app.zornslemma.mypricelog.data.toDomain
 import app.zornslemma.mypricelog.domain.MeasurementUnit
 import app.zornslemma.mypricelog.domain.Repository
+import app.zornslemma.mypricelog.domain.SettingsRepository
 import app.zornslemma.mypricelog.domain.createCurrencyFormat
 import app.zornslemma.mypricelog.ui.common.PersistentUiContent
 import app.zornslemma.mypricelog.ui.common.ValidationRule
@@ -39,6 +40,7 @@ data class EditPriceScreenStaticContent(
 
 class EditPriceViewModel(
     private val repository: Repository,
+    val settingsRepository: SettingsRepository,
     savedStateHandle: SavedStateHandle,
     initialEditableContent: EditablePrice?,
     initialStaticContent: EditPriceScreenStaticContent?,

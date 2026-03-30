@@ -43,6 +43,8 @@ import app.zornslemma.mypricelog.data.backupDatabase
 import app.zornslemma.mypricelog.data.restoreDatabase
 import app.zornslemma.mypricelog.data.toEditable
 import app.zornslemma.mypricelog.debug.myRequire
+import app.zornslemma.mypricelog.domain.SettingsRepository
+import app.zornslemma.mypricelog.domain.dataStore
 import app.zornslemma.mypricelog.ui.common.setSelectedDataSetIdAsync
 import app.zornslemma.mypricelog.ui.common.setSelectedItemIdAsync
 import app.zornslemma.mypricelog.ui.common.setSelectedSourceIdAsync
@@ -441,6 +443,7 @@ fun AppNavigation() {
                 buildViewModel = { app, handle ->
                     EditPriceViewModel(
                         app.repository,
+                        SettingsRepository(app.dataStore),
                         handle,
                         sharedViewModel.editPriceScreenInitialUiContent?.editablePrice,
                         sharedViewModel.editPriceScreenInitialUiContent?.staticContent,

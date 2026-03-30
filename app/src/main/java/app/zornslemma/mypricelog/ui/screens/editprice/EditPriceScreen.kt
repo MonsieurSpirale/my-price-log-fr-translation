@@ -43,6 +43,7 @@ import app.zornslemma.mypricelog.domain.getRelevantMeasurementUnits
 import app.zornslemma.mypricelog.ui.common.AsyncOperationStatus
 import app.zornslemma.mypricelog.ui.common.isNotBusy
 import app.zornslemma.mypricelog.ui.components.FilteredTextField
+import app.zornslemma.mypricelog.ui.components.LabelledSwitch
 import app.zornslemma.mypricelog.ui.components.LabeledItem
 import app.zornslemma.mypricelog.ui.components.MyExposedDropdownMenuBox
 import app.zornslemma.mypricelog.ui.components.SharedViewModel
@@ -145,31 +146,15 @@ fun EditPriceScreen(
         if (!originalPrice.toConfirm) {
             Spacer(modifier = Modifier.height(16.dp))
 
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = stringResource(R.string.label_confirm_pack_size_and_price),
-                        color = MaterialTheme.colorScheme.onSurface,
-                    )
-                    Text(
-                        text = stringResource(R.string.supporting_text_details_correct_right_now),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        style = MaterialTheme.typography.bodySmall,
-                    )
-                }
-                Spacer(modifier = Modifier.width(4.dp))
-                Switch(
-                    enabled = saveStatus.isNotBusy(),
-                    checked = editablePrice.toConfirm,
-                    onCheckedChange = {
-                        viewModel.setUiContentEditablePrice(editablePrice.copy(toConfirm = it))
-                    },
-                )
-            }
+            LabelledSwitch(
+                title = stringResource(R.string.label_confirm_pack_size_and_price),
+                supportingText = stringResource(R.string.supporting_text_details_correct_right_now),
+                enabled = saveStatus.isNotBusy(),
+                checked = editablePrice.toConfirm,
+                onCheckedChange = {
+                    viewModel.setUiContentEditablePrice(editablePrice.copy(toConfirm = it))
+                },
+            )
         } else {
             myCheck(editablePrice.toConfirm) {
                 "Expected toConfirm to be true as this is the first price, but it's false"

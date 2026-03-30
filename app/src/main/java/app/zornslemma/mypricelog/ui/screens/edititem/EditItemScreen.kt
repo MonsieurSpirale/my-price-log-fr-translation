@@ -41,6 +41,7 @@ import app.zornslemma.mypricelog.domain.getRelevantMeasurementUnits
 import app.zornslemma.mypricelog.ui.buttonIconTextSpacing
 import app.zornslemma.mypricelog.ui.common.isNotBusy
 import app.zornslemma.mypricelog.ui.components.FilteredTextField
+import app.zornslemma.mypricelog.ui.components.LabelledSwitch
 import app.zornslemma.mypricelog.ui.components.MyExposedDropdownMenuBox
 import app.zornslemma.mypricelog.ui.components.RadioButtonGroup
 import app.zornslemma.mypricelog.ui.components.SmallCircularProgressIndicator
@@ -225,32 +226,15 @@ fun EditItemScreen(viewModel: EditItemViewModel, requestClose: (newSelectedItemI
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // ENHANCE: I think we have this chunk to have a "labelled Switch" in a couple of places,
-        // factor it out?
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = stringResource(R.string.label_may_be_sold_in_multipacks),
-                    color = MaterialTheme.colorScheme.onSurface,
-                )
-                Text(
-                    text = stringResource(R.string.supporting_text_may_be_sold_in_multipacks),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    style = MaterialTheme.typography.bodySmall,
-                )
-            }
-            Switch(
-                enabled = saveStatus.isNotBusy(),
-                checked = editableItem.allowMultipack,
-                onCheckedChange = {
-                    viewModel.setUiContentEditableItem(editableItem.copy(allowMultipack = it))
-                },
-            )
-        }
+        LabelledSwitch(
+            title = stringResource(R.string.label_may_be_sold_in_multipacks),
+            supportingText = stringResource(R.string.supporting_text_may_be_sold_in_multipacks),
+            enabled = saveStatus.isNotBusy(),
+            checked = editableItem.allowMultipack,
+            onCheckedChange = {
+                viewModel.setUiContentEditableItem(editableItem.copy(allowMultipack = it))
+            },
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 

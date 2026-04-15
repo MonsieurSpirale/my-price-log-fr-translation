@@ -1,37 +1,38 @@
 <resources>
     <string name="app_name">My Price Log</string>
-    <string name="title_about_app_name">About My Price Log</string>
+    <string name="title_about_app_name">Au sujet de My Price Log</string>
     <string name="default_backup_filename">my_price_log_%1$s.db</string>
     <!-- We don't spell "Licence" in the UK style even though this file is generally UK English and
          we have regional overrides where necessary. I think in this computer/legal context, the US
          spelling is generally accepted. -->
     <string name="title_app_name_license">My Price Log — MIT License</string>
-    <string name="demo_groceries_data_set_name">Groceries (demo)</string>
-    <string name="demo_groceries_data_set_notes">A sample collection of unrealistic grocery prices for imaginary stores. This is intended to give you something to play with when you first install the app.</string>
-    <string name="demo_groceries_item_name_coffee_ground">Coffee (ground)</string>
-    <string name="demo_groceries_item_name_milk_whole">Milk (whole)</string>
-    <string name="demo_groceries_item_name_teabags">Teabags</string>
+    <string name="demo_groceries_data_set_name">Quincaillerie (demo)</string>
+    <string name="demo_groceries_data_set_notes">Un exemple de produits aux prix irréalistes pour des magasins imaginaires. Le but étant de vous donner quelque chose avec lequel tester le fonctionnement de l'application après une première installation.</string>
+    <string name="demo_groceries_item_name_coffee_ground">Café (en grain)</string>
+    <string name="demo_groceries_item_name_milk_whole">Lait (whole)</string>
+    <string name="demo_groceries_item_name_teabags">Sachets de thé</string>
     <string name="demo_groceries_item_name_cola">Cola</string>
-    <string name="demo_groceries_source_name_valuemart">ValueMart</string>
-    <string name="demo_groceries_source_name_superiorstore">SuperiorStore</string>
-    <string name="demo_groceries_source_name_grandways">Grandways</string>
-    <string name="demo_groceries_source_name_newco">Newco</string>
-    <string name="demo_groceries_source_notes_newco">Only just opened but I hope their prices will be good.</string>
+    <!-- Since your stores names were kindof funny, I did kindof the same while derivating from real shops -->
+    <string name="demo_groceries_source_name_valuemart">Aupré</string>
+    <string name="demo_groceries_source_name_superiorstore">SuperHyperU</string>
+    <string name="demo_groceries_source_name_grandways">GrandFrère</string>
+    <string name="demo_groceries_source_name_newco">Rondfour</string>
+    <string name="demo_groceries_source_notes_newco">Vient d'ouvrir mais j'espère que leurs prix seront bien.</string>
     <string name="demo_groceries_notes_large_pack_own_brand">Large pack own brand</string>
     <string name="demo_groceries_notes_own_brand">Own brand</string>
     <string name="demo_groceries_notes_soft_pack_own_brand">Soft pack own brand</string>
-    <string name="label_item">Product</string>
-    <string name="content_description_search_products">Search products</string>
-    <string name="supporting_text_no_items_in_data_set">There are no products in this collection. Add one using the three dots menu at the top right.</string>
-    <string name="label_source">Store</string>
+    <string name="label_item">Produit</string>
+    <string name="content_description_search_products">Recherchez un produit</string>
+    <string name="supporting_text_no_items_in_data_set">Il n'y a pas de produits dans cette collection. Ajoutez-en un en cliquant sur les trois points en haut à droite.</string>
+    <string name="label_source">Magasin</string>
     <string name="supporting_text_no_sources_in_data_set">There are no stores in this collection. Add one using the three dots menu at the top right.</string>
     <string name="source_name_none">None</string>
     <string name="content_description_expand">Expand</string>
     <string name="relative_time_span_string_now">now</string>
     <string name="title_source_price">Store price</string>
     <string name="message_no_price_for_item_at_source">There is no price recorded for this product at this store yet.</string>
-    <string name="button_add">Add</string>
-    <string name="label_confirmed">Confirmed</string>
+    <string name="button_add">Ajoutez</string>
+    <string name="label_confirmed">Confirmé</string>
     <string name="label_notes">Notes</string>
     <string name="keyboard_capitalization_notes">sentences</string>
     <string name="content_description_more_options">More options</string>

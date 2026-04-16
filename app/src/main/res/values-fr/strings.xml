@@ -38,11 +38,11 @@
     <string name="content_description_more_options">More options</string>
     <string name="menu_item_view_history">View history</string>
     <string name="menu_item_delete_price">Delete price</string>
-    <string name="message_good_price">Good price</string>
-    <string name="message_ok_price">OK price</string>
-    <string name="message_bad_price">Bad price</string>
+    <string name="message_good_price">Très bon price</string>
+    <string name="message_ok_price">Bon prix</string>
+    <string name="message_bad_price">Mauvais prix</string>
     <string name="button_edit">Edit</string>
-    <string name="button_confirm">Confirm</string>
+    <string name="button_confirm">Confirmer</string>
     <string name="button_undo">Undo</string>
     <string name="label_data_set">Collections</string>
     <string name="content_description_open_drawer">Open drawer</string>

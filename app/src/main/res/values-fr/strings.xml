@@ -6,8 +6,8 @@
          we have regional overrides where necessary. I think in this computer/legal context, the US
          spelling is generally accepted. -->
     <string name="title_app_name_license">My Price Log — MIT License</string>
-    <string name="demo_groceries_data_set_name">Quincaillerie (demo)</string>
-    <string name="demo_groceries_data_set_notes">Un exemple de produits aux prix irréalistes pour des magasins imaginaires. Le but étant de vous donner quelque chose avec lequel tester le fonctionnement de l'application après une première installation.</string>
+    <string name="demo_groceries_data_set_name">Quincaillerie (exemple)</string>
+    <string name="demo_groceries_data_set_notes">Un exemple de produits aux prix irréalistes pour des magasins imaginaires. Le but étant de vous donner un exemple avec lequel tester le fonctionnement de l'application après une première installation.</string>
     <string name="demo_groceries_item_name_coffee_ground">Café (en grain)</string>
     <string name="demo_groceries_item_name_milk_whole">Lait (whole)</string>
     <string name="demo_groceries_item_name_teabags">Sachets de thé</string>
@@ -18,51 +18,60 @@
     <string name="demo_groceries_source_name_grandways">GrandFrère</string>
     <string name="demo_groceries_source_name_newco">Rondfour</string>
     <string name="demo_groceries_source_notes_newco">Vient d'ouvrir mais j'espère que leurs prix seront bien.</string>
-    <string name="demo_groceries_notes_large_pack_own_brand">Large pack own brand</string>
-    <string name="demo_groceries_notes_own_brand">Own brand</string>
-    <string name="demo_groceries_notes_soft_pack_own_brand">Soft pack own brand</string>
+    <string name="demo_groceries_notes_large_pack_own_brand">Grand paquet, marque du magasin</string>
+    <string name="demo_groceries_notes_own_brand">Marque du magasin</string>
+    <string name="demo_groceries_notes_soft_pack_own_brand">Boîtes en carton, marque du magasin</string>
     <string name="label_item">Produit</string>
     <string name="content_description_search_products">Recherchez un produit</string>
+    <!-- Collections ? Ensemble ? Groupe ? Gamme ? à voir lequel choisir -->
     <string name="supporting_text_no_items_in_data_set">Il n'y a pas de produits dans cette collection. Ajoutez-en un en cliquant sur les trois points en haut à droite.</string>
     <string name="label_source">Magasin</string>
-    <string name="supporting_text_no_sources_in_data_set">There are no stores in this collection. Add one using the three dots menu at the top right.</string>
-    <string name="source_name_none">None</string>
+    <string name="supporting_text_no_sources_in_data_set">Il n'y a pas de magasins dans cette collection. Ajoutez-en un en cliquant sur les trois points en haut à droite.</string>
+    <string name="source_name_none">Vide</string>
+    <!-- 1. Where is expand ? --> 
     <string name="content_description_expand">Expand</string>
-    <string name="relative_time_span_string_now">now</string>
-    <string name="title_source_price">Store price</string>
-    <string name="message_no_price_for_item_at_source">There is no price recorded for this product at this store yet.</string>
+    <string name="relative_time_span_string_now">maintenant</string>
+    <string name="title_source_price">Prix du magasin</string>
+    <string name="message_no_price_for_item_at_source">Il n'y a pas encore de prix enregistré pour ce produit dans ce magasin.</string>
     <string name="button_add">Ajoutez</string>
     <string name="label_confirmed">Confirmé</string>
     <string name="label_notes">Notes</string>
+    <!-- 2. Idem -->
     <string name="keyboard_capitalization_notes">sentences</string>
-    <string name="content_description_more_options">More options</string>
-    <string name="menu_item_view_history">View history</string>
-    <string name="menu_item_delete_price">Delete price</string>
-    <string name="message_good_price">Très bon price</string>
+    <string name="content_description_more_options">Plus d'options</string>
+    <string name="menu_item_view_history">Voir l'historique</string>
+    <string name="menu_item_delete_price">Supprimer le prix</string>
+    <string name="message_good_price">Très bon prix</string>
     <string name="message_ok_price">Bon prix</string>
     <string name="message_bad_price">Mauvais prix</string>
-    <string name="button_edit">Edit</string>
+    <string name="button_edit">Modifier</string>
     <string name="button_confirm">Confirmer</string>
-    <string name="button_undo">Undo</string>
+    <string name="button_undo">Annuler</string>
+    <!-- Collections ? -->
     <string name="label_data_set">Collections</string>
+    <!-- 3. Idem --> 
     <string name="content_description_open_drawer">Open drawer</string>
     <string name="content_description_menu">Menu</string>
-    <string name="menu_item_edit_data_sets">Edit collections</string>
-    <string name="menu_item_edit_items">Edit products</string>
-    <string name="menu_item_edit_sources">Edit stores</string>
-    <string name="menu_item_settings">Settings</string>
+     <!-- Collections ? -->
+    <string name="menu_item_edit_data_sets">Modifier les collections</string>
+    <string name="menu_item_edit_items">Modifier les produits</string>
+    <string name="menu_item_edit_sources"> Modifier les magasins</string>
+    <string name="menu_item_settings">Paramètres</string>
+     <!-- Collections ? -->
     <string name="message_no_data_sets">There are no collections. Add one using the three dots menu at the top right.</string>
     <string name="message_no_data_set_selected">No collection is selected. Use the hamburger menu at the top left to select one.</string>
-    <string name="title_delete_price">Delete price</string>
-    <string name="message_confirm_delete_price">Are you sure you want to delete this price?</string>
-    <string name="button_cancel">Cancel</string>
-    <string name="button_delete">Delete</string>
-    <string name="content_description_good_price">Good price</string>
-    <string name="content_description_ok_price">OK price</string>
-    <string name="content_description_bad_price">Bad price</string>
+    <string name="title_delete_price">Supprimer le prix</string>
+    <string name="message_confirm_delete_price">Êtes-vous sûr de vouloir supprimer ce prix ?</string>
+    <string name="button_cancel">Annuler</string>
+    <string name="button_delete">Supprimer</string>
+    <string name="content_description_good_price">Très bon prix</string>
+    <string name="content_description_ok_price">Bon prix</string>
+    <string name="content_description_bad_price">Mauvais prix</string>
+     <!-- 4. Idem --> 
     <string name="content_description_stale_price">Stale price</string>
-    <string name="content_description_ancient_price">Ancient price</string>
-    <string name="title_price_comparison">Price comparison</string>
+    <string name="content_description_ancient_price">Ancien prix</string>
+    <string name="title_price_comparison">Comparaison des prix</string>
+    <!-- à traduire plus tard -->    
     <string name="subtitle_adjusted_for_discounts_and_age">Adjusted for loyalty discounts and old prices</string>
     <string name="message_no_prices_for_item_at_source">There are no prices recorded for this product at any store yet.</string>
     <string name="label_confirm_pack_size_and_price">Confirm pack size and price</string>
@@ -70,16 +79,16 @@
     <string name="label_count">Count</string>
     <string name="label_size">Size</string>
     <string name="label_unit">Unit</string>
-    <string name="content_description_close">Close</string>
-    <string name="button_save">Save</string>
+    <string name="content_description_close">Fermer</string>
+    <string name="button_save">Sauvergarder</string>
     <string name="title_discard_unsaved_changes">Discard unsaved changes?</string>
     <string name="message_unsaved_changes">You have changes that won\'t be saved if you close.</string>
     <string name="button_keep_editing">Keep editing</string>
     <string name="button_discard">Discard</string>
     <string name="message_busy_please_wait">Busy, please wait…</string>
-    <string name="title_error">Error</string>
+    <string name="title_error">Erreur</string>
     <string name="button_ok">OK</string>
-    <string name="content_description_warning">Warning</string>
+    <string name="content_description_warning">Attention</string>
     <string name="title_add_item">Add product</string>
     <string name="title_edit_item">Edit product</string>
     <string name="title_delete_item">Delete product?</string>
@@ -92,11 +101,11 @@
     <!-- We use "words" for source name because this is likely to be a store brand name. -->
     <string name="keyboard_capitalization_source_name">words</string>
     <string name="label_sold_by_item">Item</string>
-    <string name="label_sold_by_weight">Weight</string>
+    <string name="label_sold_by_weight">Poids</string>
     <string name="label_sold_by_volume">Volume</string>
-    <string name="label_sold_by">Sold by</string>
+    <string name="label_sold_by">Vendu par</string>
     <string name="supporting_text_sold_by_cant_be_changed">The \'Sold by\' setting can’t be changed because there are prices recorded for this product.</string>
-    <string name="label_default_unit">Default unit</string>
+    <string name="label_default_unit">Unité par défaut</string>
     <string name="supporting_text_default_unit">Used only as a default when entering a price for the first time. You can still choose another unit.</string>
     <string name="label_may_be_sold_in_multipacks">May be sold in multipacks</string>
     <string name="supporting_text_may_be_sold_in_multipacks">Allow entering a count as well as a size</string>

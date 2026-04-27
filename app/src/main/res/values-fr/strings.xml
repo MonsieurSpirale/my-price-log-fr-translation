@@ -12,7 +12,6 @@
     <string name="demo_groceries_item_name_milk_whole">Lait (whole)</string>
     <string name="demo_groceries_item_name_teabags">Sachets de thé</string>
     <string name="demo_groceries_item_name_cola">Cola</string>
-    <!-- Since your stores names were kindof funny, I did kindof the same while derivating from real shops -->
     <string name="demo_groceries_source_name_valuemart">Aupré</string>
     <string name="demo_groceries_source_name_superiorstore">SuperHyperU</string>
     <string name="demo_groceries_source_name_grandways">GrandFrère</string>
@@ -28,16 +27,14 @@
     <string name="label_source">Magasin</string>
     <string name="supporting_text_no_sources_in_data_set">Il n'y a pas de magasins dans cette collection. Ajoutez-en un en cliquant sur les trois points en haut à droite.</string>
     <string name="source_name_none">Vide</string>
-    <!-- 1. Where is expand ? --> 
-    <string name="content_description_expand">Expand</string>
+    <string name="content_description_expand">Étendre</string>
     <string name="relative_time_span_string_now">maintenant</string>
     <string name="title_source_price">Prix du magasin</string>
     <string name="message_no_price_for_item_at_source">Il n'y a pas encore de prix enregistré pour ce produit dans ce magasin.</string>
     <string name="button_add">Ajoutez</string>
     <string name="label_confirmed">Confirmé</string>
     <string name="label_notes">Notes</string>
-    <!-- 2. Idem -->
-    <string name="keyboard_capitalization_notes">sentences</string>
+    <string name="keyboard_capitalization_notes">Phrases</string>
     <string name="content_description_more_options">Plus d'options</string>
     <string name="menu_item_view_history">Voir l'historique</string>
     <string name="menu_item_delete_price">Supprimer le prix</string>
@@ -49,8 +46,7 @@
     <string name="button_undo">Annuler</string>
     <!-- Collections ? -->
     <string name="label_data_set">Collections</string>
-    <!-- 3. Idem --> 
-    <string name="content_description_open_drawer">Open drawer</string>
+    <string name="content_description_open_drawer">Ouvrir le dossier</string>
     <string name="content_description_menu">Menu</string>
      <!-- Collections ? -->
     <string name="menu_item_edit_data_sets">Modifier les collections</string>
@@ -67,8 +63,7 @@
     <string name="content_description_good_price">Très bon prix</string>
     <string name="content_description_ok_price">Bon prix</string>
     <string name="content_description_bad_price">Mauvais prix</string>
-     <!-- 4. Idem --> 
-    <string name="content_description_stale_price">Stale price</string>
+    <string name="content_description_stale_price">Prix caduc</string>
     <string name="content_description_ancient_price">Ancien prix</string>
     <string name="title_price_comparison">Comparaison des prix</string>
     <!-- à traduire plus tard -->    
@@ -77,45 +72,53 @@
     <string name="label_confirm_pack_size_and_price">Confirm pack size and price</string>
     <string name="supporting_text_details_correct_right_now">The above details are correct right now</string>
     <string name="label_count">Count</string>
-    <string name="label_size">Size</string>
-    <string name="label_unit">Unit</string>
+    <!-- traduit -->
+    <string name="label_size">Taille</string>
+    <string name="label_unit">Unité</string>
     <string name="content_description_close">Fermer</string>
     <string name="button_save">Sauvergarder</string>
+    <!-- à traduire plus tard -->  
     <string name="title_discard_unsaved_changes">Discard unsaved changes?</string>
     <string name="message_unsaved_changes">You have changes that won\'t be saved if you close.</string>
     <string name="button_keep_editing">Keep editing</string>
     <string name="button_discard">Discard</string>
     <string name="message_busy_please_wait">Busy, please wait…</string>
     <string name="title_error">Erreur</string>
+    <!-- traduit -->
     <string name="button_ok">OK</string>
     <string name="content_description_warning">Attention</string>
-    <string name="title_add_item">Add product</string>
+    <string name="title_add_item">Modifier le produit</string>
     <string name="title_edit_item">Edit product</string>
-    <string name="title_delete_item">Delete product?</string>
-    <string name="title_delete_item_and_prices">Delete product and prices?</string>
-    <string name="message_delete_item_no_associated_prices">This product has no associated prices so deleting it will not affect anything else.</string>
-    <string name="message_delete_item_associated_prices">Deleting this product will also delete its store prices. This action cannot be undone.</string>
-    <string name="label_name">Name</string>
-    <string name="keyboard_capitalization_data_set_name">sentences</string>
-    <string name="keyboard_capitalization_item_name">sentences</string>
+    <string name="title_delete_item">Supprimer le produit ?</string>
+    <string name="title_delete_item_and_prices">Supprimer le produit et ses prix ?</string>
+    <string name="message_delete_item_no_associated_prices">Il n'y a pas de prix associés avec ce produit, donc le supprimer ne modifiera rien d'autre.</string>
+    <string name="message_delete_item_associated_prices">Supprimer ce produit va aussi supprimer ses prix dans les magasins. Cette action ne peut pas être annulée.</string>
+    <string name="label_name">Nom</string>
+    <string name="keyboard_capitalization_data_set_name">phrases</string>
+    <string name="keyboard_capitalization_item_name">phrases</string>
     <!-- We use "words" for source name because this is likely to be a store brand name. -->
-    <string name="keyboard_capitalization_source_name">words</string>
+    <!-- Donc, traduction words => "mots" -->
+    <string name="keyboard_capitalization_source_name">mots</string>
+    <!-- Idem -->
     <string name="label_sold_by_item">Item</string>
     <string name="label_sold_by_weight">Poids</string>
     <string name="label_sold_by_volume">Volume</string>
     <string name="label_sold_by">Vendu par</string>
-    <string name="supporting_text_sold_by_cant_be_changed">The \'Sold by\' setting can’t be changed because there are prices recorded for this product.</string>
+    <string name="supporting_text_sold_by_cant_be_changed">Le paramètre \'Vendu par'\ ne peut pas être changé, car il y a des prix enregistrés pour ce produit.</string>
     <string name="label_default_unit">Unité par défaut</string>
+    <!-- à traduire plus tard -->  
     <string name="supporting_text_default_unit">Used only as a default when entering a price for the first time. You can still choose another unit.</string>
     <string name="label_may_be_sold_in_multipacks">May be sold in multipacks</string>
     <string name="supporting_text_may_be_sold_in_multipacks">Allow entering a count as well as a size</string>
-    <string name="content_description_delete">Delete</string>
-    <string name="button_delete_item">Delete product</string>
-    <string name="title_add_source">Add store</string>
-    <string name="title_edit_source">Edit store</string>
-    <string name="title_delete_source">Delete store?</string>
-    <string name="title_delete_source_and_prices">Delete store and prices?</string>
-    <string name="message_delete_source_no_associated_prices">This store has no associated prices so deleting it will not affect anything else.</string>
+    <!-- traduit -->
+    <string name="content_description_delete">Supprimer</string>
+    <string name="button_delete_item">Supprimer le produit</string>
+    <string name="title_add_source">Ajouter un magasin</string>
+    <string name="title_edit_source">Modifier le magasin</string>
+    <string name="title_delete_source">Supprimer le magasin ?</string>
+    <string name="title_delete_source_and_prices">Supprimer le magasin et ses prix ?</string>
+    <string name="message_delete_source_no_associated_prices">Il n'y a pas de prix associés avec ce magasin, donc le supprimer ne modifiera rien d'autre.</string>
+    <!-- à traduire plus tard -->  
     <string name="message_delete_source_associated_prices">Deleting this store will also delete its product prices. This action cannot be undone.</string>
     <string name="loyalty_type_none">None</string>
     <string name="loyalty_type_bonus">Store rewards</string>
